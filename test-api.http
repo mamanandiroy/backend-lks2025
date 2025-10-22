@@ -1,0 +1,35 @@
+POST http://127.0.0.1:8000/api/user/login
+Content-Type: application/json
+
+{
+  "email": "fathur@example.com",
+  "password": "12345678"
+}
+
+###
+Get http://127.0.0.1:8000/api/informasi?offset=0&page=2
+Content-Type: application/json
+Authorization: Bearer 5|t4Eizk52nNKLFE651rqqjPeAfnDpLzBsGs5lGIHA707e7360
+
+###
+Get http://127.0.0.1:8000/api/sesisoal?offset=0&page=2
+Content-Type: application/json
+Authorization: Bearer 5|t4Eizk52nNKLFE651rqqjPeAfnDpLzBsGs5lGIHA707e7360
+
+###
+Get http://127.0.0.1:8000/api/dashboard/stats
+Content-Type: application/json
+Authorization: Bearer 28|7fM38QNPV6pBHp5noKdmTIIpksRMboKoekpc9TJm21b9d2dc
+
+###
+GET http://localhost:8000/api/sesisoal/tampilsesi
+Content-Type: application/json
+Authorization: Bearer 47|4POgn6XbQH7Pm74aUQYrNcTKOoy2Ps35nYcC2iaH37c7fdef
+###
+http://localhost:8000/api/soalpertanyaan/materi/1
+Content-Type: application/json
+Authorization: Bearer 47|4POgn6XbQH7Pm74aUQYrNcTKOoy2Ps35nYcC2iaH37c7fdef
+###
+http://localhost:8000/api/sesisoal/ceksesi
+Content-Type: application/json
+Authorization: Bearer 47|4POgn6XbQH7Pm74aUQYrNcTKOoy2Ps35nYcC2iaH37c7fdef
