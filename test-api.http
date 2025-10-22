@@ -24,11 +24,12 @@ Authorization: Bearer 28|7fM38QNPV6pBHp5noKdmTIIpksRMboKoekpc9TJm21b9d2dc
 ###
 GET http://localhost:8000/api/sesisoal/tampilsesi
 Content-Type: application/json
-Authorization: Bearer 47|4POgn6XbQH7Pm74aUQYrNcTKOoy2Ps35nYcC2iaH37c7fdef
+Authorization: Bearer 56|Tdcyjm0jKr02bbV1zjlcf9GM7ZZJ431vnFvZcoYJe2894679
 ###
 http://localhost:8000/api/soalpertanyaan/materi/1
 Content-Type: application/json
-Authorization: Bearer 47|4POgn6XbQH7Pm74aUQYrNcTKOoy2Ps35nYcC2iaH37c7fdef
+Authorization: Bearer 56|Tdcyjm0jKr02bbV1zjlcf9GM7ZZJ431vnFvZcoYJe2894679
+
 ###
 http://localhost:8000/api/sesisoal/ceksesi
 Content-Type: application/json
