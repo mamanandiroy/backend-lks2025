@@ -1,30 +1,45 @@
-POST http://127.0.0.1:8000/api/user/login
+POST https://backend-lks2025-production.up.railway.app/api/user/login
 Content-Type: application/json
 
 {
-  "email": "fathur@example.com",
+  "email": "john12345@gmail.com",
   "password": "12345678"
 }
 
 ###
-Get http://127.0.0.1:8000/api/informasi?offset=0&page=2
+POST http://localhost:8000/api/user/login
 Content-Type: application/json
-Authorization: Bearer 5|t4Eizk52nNKLFE651rqqjPeAfnDpLzBsGs5lGIHA707e7360
+
+{
+  "email": "john12345@gmail.com",
+  "password": "12345678"
+}
 
 ###
-Get http://127.0.0.1:8000/api/sesisoal?offset=0&page=2
+Get https://backend-lks2025-production.up.railway.app/api/informasi?offset=0&page=2
 Content-Type: application/json
-Authorization: Bearer 5|t4Eizk52nNKLFE651rqqjPeAfnDpLzBsGs5lGIHA707e7360
+Authorization: Bearer 9|2DLt42QrkiCcMLGbfhMaeJFVyqq2bPJjNLUQ5wuR1b10be34
 
 ###
-Get http://127.0.0.1:8000/api/dashboard/stats
+Get https://backend-lks2025-production.up.railway.app/api/sesisoal
 Content-Type: application/json
-Authorization: Bearer 28|7fM38QNPV6pBHp5noKdmTIIpksRMboKoekpc9TJm21b9d2dc
+Authorization: Bearer 10|jAjtlCJDoXuPdjGBKzMXl81A0oPSk0eQiqSpUo0P95ac3dce
+
+
+
+
+
+
 
 ###
-GET http://localhost:8000/api/sesisoal/tampilsesi
+Get https://backend-lks2025-production.up.railway.app/api/dashboard/stats
 Content-Type: application/json
-Authorization: Bearer 56|Tdcyjm0jKr02bbV1zjlcf9GM7ZZJ431vnFvZcoYJe2894679
+Authorization: Bearer 9|2DLt42QrkiCcMLGbfhMaeJFVyqq2bPJjNLUQ5wuR1b10be34
+
+###
+GET http://localhost:8000/api/sesisoal/ceksesi
+Content-Type: application/json
+Authorization: Bearer 60|cclb7s1qmG8GXFmtJZBc3TsZtZGJLe6B0Uk2PCD29249f190
 ###
 http://localhost:8000/api/soalpertanyaan/materi/1
 Content-Type: application/json

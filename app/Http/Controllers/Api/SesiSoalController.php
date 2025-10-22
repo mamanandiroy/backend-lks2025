@@ -20,7 +20,7 @@ class SesiSoalController extends Controller
         $search = $request->get('search', '');
 
         // Mulai query dasar
-        $query = SesiSOal::with(['user','soal.materi']); // relasi ke tabel soal, materi dan user
+        $query = SesiSoal::with(['user','soal.materi']); // relasi ke tabel soal, materi dan user
 
         // Filter berdasarkan pencarian nama user (jika ada)
         if (!empty($search)) {
@@ -220,31 +220,42 @@ class SesiSoalController extends Controller
     {
         $user = $request->user();
 
-        // Ambil semua sesi soal milik user login + relasi soal & materi
-        $sesi = SesiSoal::where('user_id', $user->id)
-            ->with(['soal.materi'])
-            ->orderBy('id', 'desc')
-            ->get();
+        if (!$user) {
+            return response()->json(['code' => 401, 'message' => 'User tidak terautentikasi']);
+        }
 
-        // Hitung jumlah sesi dan rata-rata skor
-        $jumlahSesi = $sesi->count();
-        $rataRataSkor = $sesi->avg('skor');
+        try {
+            // Ambil semua sesi soal milik user login + relasi soal & materi
+            $sesi = SesiSoal::where('user_id', $user->id)
+                ->with(['soal.materi'])
+                ->orderBy('id', 'desc')
+                ->get();
 
-        if ($jumlahSesi > 0) {
+            // Hitung jumlah sesi dan rata-rata skor
+            $jumlahSesi = $sesi->count();
+            $rataRataSkor = $sesi->avg('skor');
+
+            if ($jumlahSesi > 0) {
+                return response()->json([
+                    'code' => 200,
+                    'message' => 'Data sesi ditemukan',
+                    'data' => [
+                        'jumlah_sesi' => $jumlahSesi,
+                        'rata_rata_skor' => round($rataRataSkor, 2),
+                        'daftar_sesi' => $sesi,
+                    ]
+                ]);
+            } else {
+                return response()->json([
+                    'code' => 201,
+                    'message' => 'Belum ada sesi soal',
+                    'data' => null
+                ]);
+            }
+        } catch (\Exception $e) {
             return response()->json([
-                'code' => 200,
-                'message' => 'Data sesi ditemukan',
-                'data' => [
-                    'jumlah_sesi' => $jumlahSesi,
-                    'rata_rata_skor' => round($rataRataSkor, 2),
-                    'daftar_sesi' => $sesi,
-                ]
-            ]);
-        } else {
-            return response()->json([
-                'code' => 201,
-                'message' => 'Belum ada sesi soal',
-                'data' => null
+                'code' => 500,
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage(),
             ]);
         }
     }

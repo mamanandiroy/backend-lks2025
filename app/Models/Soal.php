@@ -13,6 +13,11 @@ class Soal extends Model
         return $this->hasMany(SoalPertanyaan::class);
     }
 
+    public function sesisoal()
+    {
+        return $this->hasMany(SesiSoal::class);
+    }
+
     public function materi()
     {
         return $this->belongsTo(Materi::class);

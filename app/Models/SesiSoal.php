@@ -15,7 +15,7 @@ class SesiSoal extends Model
 
     public function soal()
     {
-        return $this->belongsTo(soal::class);
+        return $this->belongsTo(Soal::class);
     }
 
 }
